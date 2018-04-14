@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TNote</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="header">
+      <ul class="top_menu">
+        <li><%= link_to 't-Note', top_notes_path, :class => "sitename" %></li>
+        <li><%= link_to 'Home', top_notes_path, :class => "menu" %></li>
+        <li><%= link_to '新規投稿', new_note_path, :class => "menu" %></li>
+        <li><%= link_to '投稿一覧', notes_path, :class => "menu" %></li>
+      </ul>
+    </header>
+    
+    <div class="main">
+      <%= yield %>
+    </div>
+    
+    <footer class="footer">
+      <p>clone application</p>
+    </footer>
+  </body>
+</html>

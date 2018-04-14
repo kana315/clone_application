@@ -1,0 +1,20 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+
+development:
+  <<: *default
+  database: t-note_development
+
+test:
+  <<: *default
+  database: t-note_test
+
+production:
+  <<: *default
+  database: t-note_production
+  username: t-note
+  password: <%= ENV['T-NOTE_DATABASE_PASSWORD'] %>

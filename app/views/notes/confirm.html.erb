@@ -1,0 +1,15 @@
+<h2 class="index">確認画面</h2>
+
+<div class="form_area">
+<%= form_with(model:@note, url:notes_path, local:true) do |form| %>
+    <%= form.hidden_field:content %>
+        <%= @note.content %>
+        <%= form.submit "投稿", :class => "submit" %>
+<% end %>
+
+<%= form_with(model:@note, url:new_note_path, local:true, method:'get') do |form| %>
+    
+        <%= form.hidden_field:content %>
+        <%= form.submit "戻る", name: 'back', :class => "submit back_submit" %>
+<% end %>
+</div>

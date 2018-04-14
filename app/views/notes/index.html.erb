@@ -1,0 +1,22 @@
+<h2 class="index">投稿一覧</h2>
+
+<p><%= notice %></p>
+
+<table class="index_area">
+<% @note.each do |note| %>
+    <tr>
+        <td class="index_content"><%= note.content %></td>
+        <td>
+            <button name="button" type="submit" class="index_submit edit_submit">
+                <%= link_to '編集', edit_note_path(note.id) %>
+            </button>
+        </td>
+        <td>
+            <button name="button" type="submit" class="index_submit delete_submit">
+                <%= link_to '削除', note_path(note.id), method: :delete,
+                    data: {confirm: '本当に削除していいですか？'} %>
+            </button>
+        </td>
+    </tr>
+<% end %>
+</table>

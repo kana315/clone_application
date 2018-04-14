@@ -1,0 +1,17 @@
+<%= form_with(model:@note, local:true, url:new_or_edit) do |form| %>
+    <% if @note.errors.any? %>
+        <div class="errors_area">
+            <ul>
+                <% @note.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    
+    <div class="form_area">
+        <%= form.label :content, :class => "form_label" %>
+        <%= form.text_field :content %>
+        <%= form.submit "投稿", :class => "submit" %>
+    </div>
+<% end %>
